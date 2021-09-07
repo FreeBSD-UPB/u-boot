@@ -14,23 +14,23 @@ static struct mm_region bhyve_arm64_mem_map[] = {
 		/* Peripherals */
 		.virt = 0x10000UL,
 		.phys = 0x10000UL,
-		.size = 0x1000ul,
+		.size = 0x1000UL,
 		.attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
 			 PTE_BLOCK_NON_SHARE |
 			 PTE_BLOCK_PXN | PTE_BLOCK_UXN
 	}, {
-		/* PCI */
-		.virt = 0xa0000000UL,
-		.phys = 0xa0000000UL,
-		.size = 0x50000000ul,
+		/* VirtIO block */
+		.virt = 0x7000UL,
+		.phys = 0x7000UL,
+		.size = 0x1000UL,
 		.attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
 			 PTE_BLOCK_NON_SHARE |
 			 PTE_BLOCK_PXN | PTE_BLOCK_UXN
 	}, {
 		/* RAM */
-		.virt = 0x100000000UL,
-		.phys = 0x100000000UL,
-		.size = 0x40000000UL,
+		.virt = 0x80000000UL,
+		.phys = 0x80000000UL,
+		.size = 0x30000000UL,
 		.attrs = PTE_BLOCK_MEMTYPE(MT_NORMAL) |
 			 PTE_BLOCK_INNER_SHARE
 	}, {
@@ -50,6 +50,6 @@ int board_init(void)
 int dram_init(void)
 {
 
-	gd->ram_size = 0x40000000UL;
+	gd->ram_size = 0x30000000UL;
 	return 0;
 }

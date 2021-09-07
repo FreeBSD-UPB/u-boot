@@ -10,7 +10,7 @@
 
 /* Physical memory map */
 
-#define CONFIG_SYS_SDRAM_BASE		0x100000000
+#define CONFIG_SYS_SDRAM_BASE		0x80000000
 
 #define CONFIG_SYS_INIT_SP_ADDR         (CONFIG_SYS_SDRAM_BASE + SZ_2M)
 #define CONFIG_SYS_LOAD_ADDR		CONFIG_SYS_SDRAM_BASE
@@ -30,8 +30,8 @@
 
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"fdtfile=bhyve-arm.dts\0" \
-	"fdt_addr_r=0x100000000\0" \
-	"kernel_addr_r=0x100200000\0" \
+	"fdt_addr_r=0x80000000\0" \
+	"kernel_addr_r=0x80200000\0" \
 	BOOTENV
 
 #endif /* __CONFIG_H */
